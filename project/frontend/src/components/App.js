@@ -1,5 +1,4 @@
-import React, { Component, Fragment } from "react";
-import ReactDOM from "react-dom";
+import { h, render, Component } from 'preact';
 
 class App extends Component {
   state = {
@@ -20,15 +19,15 @@ class App extends Component {
 
   render() {
     return (
-      <Fragment>
+      <div>
         <input id="file" type="file" accept="image/*" onChange={this.imageUploadedHandler} />
         <If condition={this.state.selectedFile}>
           <img src={this.state.selectedFileSrc} style={{ width: '200px', height: '200px' }} alt='upload-preview' />
         </If>
-      </Fragment>
+      </div>
     );
   }
 }
 
 const wrapper = document.getElementById("app");
-wrapper ? ReactDOM.render(<App />, wrapper) : null;
+wrapper ? render(<App />, wrapper) : null;
