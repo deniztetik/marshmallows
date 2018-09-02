@@ -21,6 +21,9 @@ const getConfig = (env) => {
           }
         }
       ]
+    },
+    resolve: {
+      modules: [path.resolve(__dirname, 'project/frontend/src/lib'), 'node_modules']
     }
   };
 

@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /Users/dtetik/.npm-global/bin/yarn add transform-react-jsx --dev
+  /usr/local/bin/node /Users/dtetik/.npm-global/bin/yarn add transform-react-remove-prop-types --dev
 
 PATH: 
   /Users/dtetik/.virtualenvs/marshmallows3/bin:/Users/dtetik/Library/Python/2.7/bin:/Library/Frameworks/Python.framework/Versions/3.7/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/dtetik/Library/Python/2.7/bin:/Library/Frameworks/Python.framework/Versions/3.7/bin:/usr/local/sbin:/Users/dtetik/.npm-global/bin:/Users/dtetik/.npm-global/bin
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.npmjs.org/transform-react-jsx: Not found
+  Error: https://registry.npmjs.org/transform-react-remove-prop-types: Not found
       at Request.params.callback [as _callback] (/Users/dtetik/.npm-global/lib/node_modules/yarn/lib/cli.js:65656:18)
       at Request.self.callback (/Users/dtetik/.npm-global/lib/node_modules/yarn/lib/cli.js:134675:22)
       at Request.emit (events.js:182:13)
@@ -47,6 +47,7 @@ npm manifest:
       "babel-loader": "^8.0.0",
       "babel-plugin-jsx-control-statements": "^3.2.8",
       "babel-plugin-transform-class-properties": "^6.24.1",
+      "babel-plugin-transform-react-jsx": "^6.24.1",
       "html-webpack-plugin": "^3.2.0",
       "webpack": "^4.17.1",
       "webpack-cli": "^3.1.0",
@@ -54,9 +55,7 @@ npm manifest:
     },
     "dependencies": {
       "preact": "^8.3.1",
-      "prop-types": "^15.6.2",
-      "react": "^16.4.2",
-      "react-dom": "^16.4.2"
+      "prop-types": "^15.6.2"
     }
   }
 
@@ -895,10 +894,6 @@ Lockfile:
     version "0.3.2"
     resolved "https://registry.yarnpkg.com/array-unique/-/array-unique-0.3.2.tgz#a894b75d4bc4f6cd679ef3244a9fd8f46ae2d428"
   
-  asap@~2.0.3:
-    version "2.0.6"
-    resolved "https://registry.yarnpkg.com/asap/-/asap-2.0.6.tgz#e50347611d7e690943208bbdafebcbc2fb866d46"
-  
   asn1.js@^4.0.0:
     version "4.10.1"
     resolved "https://registry.yarnpkg.com/asn1.js/-/asn1.js-4.10.1.tgz#b9c2bf5805f1e64aadeed6df3a2bfafb5a73f5a0"
@@ -974,6 +969,14 @@ Lockfile:
       source-map "^0.5.7"
       trim-right "^1.0.1"
   
+  babel-helper-builder-react-jsx@^6.24.1:
+    version "6.26.0"
+    resolved "https://registry.yarnpkg.com/babel-helper-builder-react-jsx/-/babel-helper-builder-react-jsx-6.26.0.tgz#39ff8313b75c8b65dceff1f31d383e0ff2a408a0"
+    dependencies:
+      babel-runtime "^6.26.0"
+      babel-types "^6.26.0"
+      esutils "^2.0.2"
+  
   babel-helper-function-name@^6.24.1:
     version "6.24.1"
     resolved "https://registry.yarnpkg.com/babel-helper-function-name/-/babel-helper-function-name-6.24.1.tgz#d3475b8c03ed98242a25b48351ab18399d3580a9"
@@ -1024,7 +1027,7 @@ Lockfile:
     version "6.13.0"
     resolved "http://registry.npmjs.org/babel-plugin-syntax-class-properties/-/babel-plugin-syntax-class-properties-6.13.0.tgz#d7eb23b79a317f8543962c505b827c7d6cac27de"
   
-  babel-plugin-syntax-jsx@^6.1.18:
+  babel-plugin-syntax-jsx@^6.1.18, babel-plugin-syntax-jsx@^6.8.0:
     version "6.18.0"
     resolved "http://registry.npmjs.org/babel-plugin-syntax-jsx/-/babel-plugin-syntax-jsx-6.18.0.tgz#0af32a9a6e13ca7a3fd5069e62d7b0f58d0d8946"
   
@@ -1036,6 +1039,14 @@ Lockfile:
       babel-plugin-syntax-class-properties "^6.8.0"
       babel-runtime "^6.22.0"
       babel-template "^6.24.1"
+  
+  babel-plugin-transform-react-jsx@^6.24.1:
+    version "6.24.1"
+    resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-jsx/-/babel-plugin-transform-react-jsx-6.24.1.tgz#840a028e7df460dfc3a2d29f0c0d91f6376e66a3"
+    dependencies:
+      babel-helper-builder-react-jsx "^6.24.1"
+      babel-plugin-syntax-jsx "^6.8.0"
+      babel-runtime "^6.22.0"
   
   babel-register@^6.26.0:
     version "6.26.0"
@@ -1537,10 +1548,6 @@ Lockfile:
     version "0.1.1"
     resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
   
-  core-js@^1.0.0:
-    version "1.2.7"
-    resolved "https://registry.yarnpkg.com/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
-  
   core-js@^2.4.0, core-js@^2.5.0:
     version "2.5.7"
     resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.7.tgz#f972608ff0cead68b841a16a932d0b183791814e"
@@ -1854,12 +1861,6 @@ Lockfile:
     version "1.0.2"
     resolved "https://registry.yarnpkg.com/encodeurl/-/encodeurl-1.0.2.tgz#ad3ff4c86ec2d029322f5a02c3a9a606c95b3f59"
   
-  encoding@^0.1.11:
-    version "0.1.12"
-    resolved "https://registry.yarnpkg.com/encoding/-/encoding-0.1.12.tgz#538b66f3ee62cd1ab51ec323829d1f9480c74beb"
-    dependencies:
-      iconv-lite "~0.4.13"
-  
   end-of-stream@^1.0.0, end-of-stream@^1.1.0:
     version "1.4.1"
     resolved "https://registry.yarnpkg.com/end-of-stream/-/end-of-stream-1.4.1.tgz#ed29634d19baba463b6ce6b80a37213eab71ec43"
@@ -2080,18 +2081,6 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/faye-websocket/-/faye-websocket-0.11.1.tgz#f0efe18c4f56e4f40afc7e06c719fd5ee6188f38"
     dependencies:
       websocket-driver ">=0.5.1"
-  
-  fbjs@^0.8.16:
-    version "0.8.17"
-    resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.17.tgz#c4d598ead6949112653d6588b01a5cdcd9f90fdd"
-    dependencies:
-      core-js "^1.0.0"
-      isomorphic-fetch "^2.1.1"
-      loose-envify "^1.0.0"
-      object-assign "^4.1.0"
-      promise "^7.1.1"
-      setimmediate "^1.0.5"
-      ua-parser-js "^0.7.18"
   
   figures@^2.0.0:
     version "2.0.0"
@@ -2458,7 +2447,7 @@ Lockfile:
     version "0.4.19"
     resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.19.tgz#f7468f60135f5e5dad3399c0a81be9a1603a082b"
   
-  iconv-lite@^0.4.24, iconv-lite@^0.4.4, iconv-lite@~0.4.13:
+  iconv-lite@^0.4.24, iconv-lite@^0.4.4:
     version "0.4.24"
     resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"
     dependencies:
@@ -2705,7 +2694,7 @@ Lockfile:
     dependencies:
       has "^1.0.1"
   
-  is-stream@^1.0.1, is-stream@^1.1.0:
+  is-stream@^1.1.0:
     version "1.1.0"
     resolved "https://registry.yarnpkg.com/is-stream/-/is-stream-1.1.0.tgz#12d4a3dd4e68e0b79ceb8dbc84173ae80d91ca44"
   
@@ -2742,13 +2731,6 @@ Lockfile:
   isobject@^3.0.0, isobject@^3.0.1:
     version "3.0.1"
     resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
-  
-  isomorphic-fetch@^2.1.1:
-    version "2.2.1"
-    resolved "https://registry.yarnpkg.com/isomorphic-fetch/-/isomorphic-fetch-2.2.1.tgz#611ae1acf14f5e81f729507472819fe9733558a9"
-    dependencies:
-      node-fetch "^1.0.1"
-      whatwg-fetch ">=0.10.0"
   
   js-levenshtein@^1.1.3:
     version "1.1.3"
@@ -2875,7 +2857,7 @@ Lockfile:
     version "3.2.0"
     resolved "https://registry.yarnpkg.com/long/-/long-3.2.0.tgz#d821b7138ca1cb581c172990ef14db200b5c474b"
   
-  loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1:
+  loose-envify@^1.0.0, loose-envify@^1.3.1:
     version "1.4.0"
     resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
     dependencies:
@@ -3136,13 +3118,6 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/no-case/-/no-case-2.3.2.tgz#60b813396be39b3f1288a4c1ed5d1e7d28b464ac"
     dependencies:
       lower-case "^1.1.1"
-  
-  node-fetch@^1.0.1:
-    version "1.7.3"
-    resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-1.7.3.tgz#980f6f72d85211a5347c6b2bc18c5b84c3eb47ef"
-    dependencies:
-      encoding "^0.1.11"
-      is-stream "^1.0.1"
   
   node-forge@0.7.5:
     version "0.7.5"
@@ -3527,13 +3502,7 @@ Lockfile:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/promise-inflight/-/promise-inflight-1.0.1.tgz#98472870bf228132fcbdd868129bad12c3c029e3"
   
-  promise@^7.1.1:
-    version "7.3.1"
-    resolved "https://registry.yarnpkg.com/promise/-/promise-7.3.1.tgz#064b72602b18f90f29192b8b1bc418ffd1ebd3bf"
-    dependencies:
-      asap "~2.0.3"
-  
-  prop-types@^15.6.0, prop-types@^15.6.2:
+  prop-types@^15.6.2:
     version "15.6.2"
     resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
     dependencies:
@@ -3642,24 +3611,6 @@ Lockfile:
       ini "~1.3.0"
       minimist "^1.2.0"
       strip-json-comments "~2.0.1"
-  
-  react-dom@^16.4.2:
-    version "16.4.2"
-    resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.4.2.tgz#4afed569689f2c561d2b8da0b819669c38a0bda4"
-    dependencies:
-      fbjs "^0.8.16"
-      loose-envify "^1.1.0"
-      object-assign "^4.1.1"
-      prop-types "^15.6.0"
-  
-  react@^16.4.2:
-    version "16.4.2"
-    resolved "https://registry.yarnpkg.com/react/-/react-16.4.2.tgz#2cd90154e3a9d9dd8da2991149fdca3c260e129f"
-    dependencies:
-      fbjs "^0.8.16"
-      loose-envify "^1.1.0"
-      object-assign "^4.1.1"
-      prop-types "^15.6.0"
   
   "readable-stream@1 || 2", readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.4, readable-stream@^2.0.6, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.2.9, readable-stream@^2.3.3, readable-stream@^2.3.6:
     version "2.3.6"
@@ -3965,7 +3916,7 @@ Lockfile:
       is-plain-object "^2.0.3"
       split-string "^3.0.1"
   
-  setimmediate@^1.0.4, setimmediate@^1.0.5:
+  setimmediate@^1.0.4:
     version "1.0.5"
     resolved "https://registry.yarnpkg.com/setimmediate/-/setimmediate-1.0.5.tgz#290cbb232e306942d7d7ea9b83732ab7856f8285"
   
@@ -4316,10 +4267,6 @@ Lockfile:
     version "0.0.6"
     resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   
-  ua-parser-js@^0.7.18:
-    version "0.7.18"
-    resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.18.tgz#a7bfd92f56edfb117083b69e31d2aa8882d4b1ed"
-  
   uglify-es@^3.3.4:
     version "3.3.9"
     resolved "https://registry.yarnpkg.com/uglify-es/-/uglify-es-3.3.9.tgz#0c1c4f0700bed8dbc124cdb304d2592ca203e677"
@@ -4620,10 +4567,6 @@ Lockfile:
   websocket-extensions@>=0.1.1:
     version "0.1.3"
     resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.3.tgz#5d2ff22977003ec687a4b87073dfbbac146ccf29"
-  
-  whatwg-fetch@>=0.10.0:
-    version "2.0.4"
-    resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-2.0.4.tgz#dde6a5df315f9d39991aa17621853d720b85566f"
   
   which-module@^2.0.0:
     version "2.0.0"
