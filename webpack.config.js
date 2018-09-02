@@ -9,7 +9,8 @@ const getConfig = (env) => {
     devServer: {
       proxy: {
         '/api': 'http://localhost:8000'
-      }
+      },
+      host: '0.0.0.0'  
     },
     entry: './project/frontend/src/index.js',
     output: {
@@ -30,6 +31,10 @@ const getConfig = (env) => {
     },
     resolve: {
       modules: [path.resolve(__dirname, 'project/frontend/src/lib'), 'node_modules']
+    },
+    watchOptions: {
+      aggregateTimeout: 300,
+      poll: 1000
     }
   };
 
