@@ -1,2 +1,3 @@
 node_modules/
 __pycache__/
+project/frontend/static/frontend/main.js
