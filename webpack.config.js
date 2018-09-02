@@ -6,6 +6,11 @@ const getConfig = (env) => {
   const isDev = !isProd;
 
   const config = {
+    devServer: {
+      proxy: {
+        '/api': 'http://localhost:8000'
+      }
+    },
     entry: './project/frontend/src/index.js',
     output: {
       filename: 'main.js',
