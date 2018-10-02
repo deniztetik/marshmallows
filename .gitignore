@@ -3,3 +3,4 @@ __pycache__/
 project/frontend/static/frontend/main.js
 .vscode/
 .DS_Store
+*.pyc
