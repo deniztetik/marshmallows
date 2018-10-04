@@ -10,7 +10,7 @@ const getConfig = (env) => {
       proxy: {
         '/api': 'http://localhost:8000'
       },
-      host: '0.0.0.0'  
+      host: '0.0.0.0'
     },
     entry: './project/frontend/src/index.js',
     output: {
@@ -26,11 +26,15 @@ const getConfig = (env) => {
           use: {
             loader: "babel-loader"
           }
-        }
+        },
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader']
+        },
       ]
     },
     resolve: {
-      modules: [path.resolve(__dirname, 'project/frontend/src/lib'), 'node_modules']
+      modules: [path.resolve(__dirname, 'project/frontend/src/lib'), 'node_modules'],
     },
     watchOptions: {
       aggregateTimeout: 300,
