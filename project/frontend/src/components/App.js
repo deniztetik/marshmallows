@@ -7,6 +7,8 @@ import styled from 'styled-components';
 
 import 'bulma/css/bulma.css'
 
+import ColorCircle from './ColorCircle';
+
 import ArtworksAndPalettes from './ArtworksAndPalettes';
 
 const SelectedColor = styled.div`
@@ -15,12 +17,20 @@ const SelectedColor = styled.div`
   background: ${props => props.backgroundColor}
 `;
 
+const Button = styled.button`
+  margin: 0 5px;
+`;
+
+const initialState = {
+  selectedFile: null,
+  selectedFileSrc: null,
+  color: null,
+  selectedColors: [],
+  submittedColors: false,
+}
+
 class App extends Component {
-  state = {
-    selectedFile: null,
-    selectedFileSrc: null,
-    color: null,
-  }
+  state = initialState
 
   handleChangeComplete = color => {
     this.setState({
@@ -28,13 +38,33 @@ class App extends Component {
     })
   }
 
+  addColor = () => {
+    this.setState({
+      selectedColors: [...this.state.selectedColors, this.state.color],
+      color: null,
+    });
+  }
+
+  queryWithColors = () => {
+    this.setState({
+      submittedColors: true,
+    })
+  }
+
+  resetState = () => {
+    this.setState(initialState);
+  }
+
   render() {
     const {
       color,
+      selectedColors,
+      submittedColors,
     } = this.state;
 
     return (
       <div className="container">
+        <h1 class="title is-1">ColorBot</h1>
         <div className="columns">
           <div className="column">
             <SwatchesPicker
@@ -42,16 +72,44 @@ class App extends Component {
             />
           </div>
           <div className='column'>
-            <SelectedColor
-              backgroundColor={color}
+            <ColorCircle
+              color={color}
+              size='200px'
             />
             <div>{color}</div>
-            <input class="button is-primary" type="submit" value="Submit input"></input>
+            <If condition={color}>
+              <button
+                className="button is-primary"
+                type="submit"
+                onClick={this.addColor}
+              >
+                Add Color
+              </button>
+            </If>
           </div>
           <div className="column">
+            {selectedColors.map(selectedColor => (
+              <ColorCircle key={selectedColor} color={selectedColor} />
+            ))}
+            <If condition={selectedColors.length}>
+              <Button
+                className="button is-primary"
+                type="submit"
+                onClick={this.queryWithColors}
+              >
+                Submit Colors
+              </Button>
+              <Button
+                className="button is-dark"
+                type="reset"
+                onClick={this.resetState}
+              >
+                Reset
+              </Button>
+            </If>
           </div>
         </div>
-        <If condition={color}>
+        <If condition={submittedColors}>
           <ArtworksAndPalettes />
         </If>
       </div>

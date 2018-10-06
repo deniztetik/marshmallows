@@ -1,5 +1,7 @@
 import React, { Fragment } from 'react';
 
+import ColorCircle from './ColorCircle';
+
 import styled from 'styled-components';
 
 const ArtworkAndPalette = styled.div`
@@ -8,26 +10,7 @@ const ArtworkAndPalette = styled.div`
 
 const ArtworksAndPalletesImage = styled.img`
   max-height: 200px;
-`;
-
-const ColorCircle = styled.div`
-  width: 50px;
-  height: 50px;
-  border-radius: 20px;
-  margin: 10px 0;
-`;
-
-const ColorCircle1 = styled(ColorCircle)`
-  background: grey;
-`;
-
-const ColorCircle2 = styled(ColorCircle)`
-  background: darkblue;
-`;
-
-const ColorCircle3 = styled(ColorCircle)`
-  background: orange;
-`;
+`; 
 
 const artists = [
     'balenciaga',
@@ -40,7 +23,7 @@ const artists = [
 const ArtworksAndPalettes = () =>
     <Fragment>
         {artists.map(artist =>
-            <ArtworkAndPalette className="columns is-centered" key={artist}>
+            <ArtworkAndPalette className="columns card" key={artist}>
                 <div className="column">
                     <ArtworksAndPalletesImage src={`../images_and_palettes/${artist}/${artist}_image.jpg`} />
                 </div>
@@ -53,15 +36,15 @@ const ArtworksAndPalettes = () =>
                     </p>
                     <div className="card-content">
                         <div className="media">
-                            <ColorCircle1 className="media-left" />
+                            <ColorCircle className="media-left" color="grey" />
                             <div className="media-content">Grey</div>
                         </div>
                         <div className="media">
-                            <ColorCircle2 className="media-left" />
+                            <ColorCircle className="media-left" color="blue" />
                             <div className="media-content">Blue</div>
                         </div>
                         <div className="media">
-                            <ColorCircle3 className="media-left" />
+                            <ColorCircle className="media-left" color="orange" />
                             <div className="media-content">Orange</div>
                         </div>
                     </div>
