@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
+<!-- Active URL: http://ondras.zarovi.cz/sql/demo/?keyword=default -->
+<sql>
+<datatypes db="mysql">
+		<group color="rgb(238,238,170)" label="Numeric">
+			<type label="INT" length="0" quote="" sql="INT"/>
+			<type label="DECIMAL" length="1" quote="" re="DEC" sql="DECIMAL"/>
+		</group>
+		<group color="rgb(255,200,200)" label="Character">
+			<type label="VARBINARY" length="1" quote="'" sql="VARBINARY"/>
+			<type label="NVARCHAR" length="1" quote="'" sql="NVARCHAR"/>
+		</group>
+		<group color="rgb(200,255,200)" label="Date &amp; Time">
+			<type label="DATETIME" length="0" quote="'" sql="DATETIME"/>
+		</group>
+		<group color="rgb(200,200,255)" label="Miscellaneous">
+			<type label="BIT" length="0" quote="" sql="bit"/>
+		</group>
+	</datatypes><table x="137" y="179" name="Artworks">
+<row name="id" null="1" autoincrement="1">
+<datatype>INT</datatype>
+<default>NULL</default></row>
+<row name="name" null="1" autoincrement="0">
+<datatype>NVARCHAR</datatype>
+<default>NULL</default></row>
+<row name="artist" null="1" autoincrement="0">
+<datatype>INT</datatype>
+<default>NULL</default></row>
+<row name="artwork_link" null="1" autoincrement="0">
+<datatype>NVARCHAR</datatype>
+<default>NULL</default></row>
+<row name="palette_link" null="1" autoincrement="0">
+<datatype>NVARCHAR</datatype>
+<default>NULL</default></row>
+<row name="colors (json object)" null="1" autoincrement="0">
+<datatype>VARBINARY</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="486" y="339" name="Colors">
+<row name="id" null="1" autoincrement="1">
+<datatype>INT</datatype>
+<default>NULL</default></row>
+<row name="id_Artworks" null="1" autoincrement="0">
+<datatype>INT</datatype>
+<default>NULL</default><relation table="Artworks" row="id" />
+</row>
+<row name="color_group" null="1" autoincrement="0">
+<datatype>NVARCHAR</datatype>
+<default>NULL</default></row>
+<row name="rgb_value" null="1" autoincrement="0">
+<datatype>NVARCHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+</sql>

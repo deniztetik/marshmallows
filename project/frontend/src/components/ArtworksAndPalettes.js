@@ -6,11 +6,21 @@ import styled from 'styled-components';
 
 const ArtworkAndPalette = styled.div`
   margin: 20px;
+  background-color: #9D99A9;
 `;
 
 const ArtworksAndPalletesImage = styled.img`
   max-height: 200px;
-`; 
+`;
+
+const ColorsCard = styled.div`
+  background-color: #C4B0BC;
+`;
+
+const ColorText = styled.div`
+  align-self: center;
+  margin: 0 10px;
+`;
 
 const artists = [
     'balenciaga',
@@ -30,25 +40,25 @@ const ArtworksAndPalettes = () =>
                 <div className="column">
                     <ArtworksAndPalletesImage src={`../images_and_palettes/${artist}/${artist}_palette.png`} />
                 </div>
-                <div className="column card">
+                <ColorsCard className="column card">
                     <p className="title">
                         Strong Match
                     </p>
                     <div className="card-content">
                         <div className="media">
                             <ColorCircle className="media-left" color="grey" />
-                            <div className="media-content">Grey</div>
+                            <ColorText className="media-content">Grey</ColorText>
                         </div>
                         <div className="media">
                             <ColorCircle className="media-left" color="blue" />
-                            <div className="media-content">Blue</div>
+                            <ColorText className="media-content">Blue</ColorText>
                         </div>
                         <div className="media">
                             <ColorCircle className="media-left" color="orange" />
-                            <div className="media-content">Orange</div>
+                            <ColorText className="media-content">Orange</ColorText>
                         </div>
                     </div>
-                </div>
+                </ColorsCard>
             </ArtworkAndPalette>
         )}
     </Fragment>;
